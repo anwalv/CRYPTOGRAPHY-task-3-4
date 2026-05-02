@@ -1,0 +1,17 @@
+[project]
+name = "task05-rsa-signatures"
+version = "0.1.0"
+description = "CS810 Cryptography Task 5"
+authors = [
+    {name = "Group05"}
+]
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "cryptography (>=47.0.0,<48.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
