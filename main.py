@@ -1,5 +1,6 @@
 import struct
 import os
+import base64
 
 #1 task
 def sha256(message: bytes):
@@ -59,5 +60,32 @@ def sha256(message: bytes):
     return ''.join(f'{x:08x}' for x in [h0, h1, h2, h3, h4, h5, h6, h7])
 
 
+# тестові вектори 
+def test_sha256():
+    test_cases = [
+        (b"", "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"),
+        (b"abc", "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad"),
+        (b"abcdbcdecdefdefgefghfghighijhijkijkljklmklmnlmnomnopnopq", 
+         "248d6a61d20638b8e5c026930c3e6039a33ce45964ff2167f6ecedd419db06c1"),
+         (b"abcdefghbcdefghicdefghijdefghijkefghijklfghijklmghijklmnhijklmnoijklmnopjklmnopqklmnopqrlmnopqrsmnopqrstnopqrstu",
+          "cf5b16a778af8380036ce59e7b0492370b249b11e8f07a51afac45037afee9d1")
+    ]
+    for msg, expected in test_cases:
+        actual = sha256(msg)
+        status = "PASSED" if actual == expected else "FAILED"
+        print(f"Status:   {status}\n")
+
 if __name__ == "__main__":
-    print(sha256(b'abc'))
+    test_sha256()
+
+#task 8
+with open("kse.ua.crt", "r") as f:
+    lines = f.readlines()
+
+base64_content = "".join([line.strip() for line in lines if "CERTIFICATE" not in line])
+der_data = base64.b64decode(base64_content)
+final_hash = sha256(der_data)
+#тут я теж запитала в ші як зробити такий вивід як в завданні, тому цей рядочок був написаний gemini
+formatted_hash = ":".join(final_hash[i:i+2].upper() for i in range(0, len(final_hash), 2))
+
+print(f"Обчислений відбиток:\n{formatted_hash}")
