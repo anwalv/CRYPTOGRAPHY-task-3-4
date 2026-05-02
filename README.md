@@ -35,7 +35,8 @@ The SHA-256 algorithm works with data blocks of size 512 bits and creates a 256-
 
 >It took about 1 hour and 34 minutes—which is a huge relief compared to 8 hours. This indicates a complexity of $2^{32}$, putting the odds of finding this hash at 1 in 4,294,967,296
 
-**Code** : [here](Task02/task2.py)
+- **Code**: [here](Task02/task2.py)
+- **Notebook**: [here](Task02/Notebook.ipynb)
 
 *Output*:
 ```
@@ -188,7 +189,7 @@ Duration: period of approximately 90 days.
 ```
 
 ![](Task07/assets/1.png)
-![](Task08/assets/2.png)
+![](Task07/assets/2.png)
 
 
 ## **8. Fingerprint of the Current kse.ua Certificate**
@@ -204,6 +205,7 @@ In this task, we analyzed how the certificate fingerprint displayed in web brows
 > `36:A7:60:17:49:FB:AD:99:5A:97:79:E2:C8:A2:B6:89:1D:03:98:70:FF:40:E3:4B:E2:0D:A3:A4:BF:CC:EB:E0`
 
 This result perfectly matches the fingerprint provided in the assignment.
+![](Task08/assets/1.png)
 
 ## **Conclusion**:
  
